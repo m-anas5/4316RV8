@@ -1,0 +1,35 @@
+<?xml version="1.0" encoding="UTF-8" standalone="yes"?>
+<Workspace>
+	<Workspace_Title/>
+	<Workspace_Vertion>1.1.0</Workspace_Vertion>
+	<Workspace_Date>2023/10/11 11:54:02</Workspace_Date>
+	<Display3D>
+		<RobotModelType>0</RobotModelType>
+		<ZoomType>0</ZoomType>
+	</Display3D>
+	<Project>test2</Project>
+	<LastLayoutSelect>Layout</LastLayoutSelect>
+	<ScreenRect>
+		<Screen160>
+			<AdditionalInfo/>
+			<Left>67</Left>
+			<Top>-16</Top>
+			<Right>597</Right>
+			<Bottom>435</Bottom>
+		</Screen160>
+	</ScreenRect>
+	<Project>RC2</Project>
+	<Project>RC3</Project>
+	<Project>RC4</Project>
+	<IOSimulator>
+		<FilePathType>1</FilePathType>
+		<FilePath>@IOSimulator@\sim.xml</FilePath>
+		<AutoStart>1</AutoStart>
+	</IOSimulator>
+	<LastSimulationSelect>
+		<ProjectName>RC3</ProjectName>
+	</LastSimulationSelect>
+	<LastOnlineSelect>
+		<ProjectName>RC3</ProjectName>
+	</LastOnlineSelect>
+</Workspace>

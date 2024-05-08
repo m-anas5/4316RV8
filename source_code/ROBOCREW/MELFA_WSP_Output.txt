@@ -1,0 +1,74 @@
+2023:10:13 11:48:11	:Syntax check Error
+	:Program	:SAMPLE(Command:1)	:test2	:Robot	:1 Mov AZ	:Syntax error
+2023:10:13 11:48:40	:Syntax check Error
+	:Program	:SAMPLE(Command:1)	:test2	:Robot	:1 Mov AZ	:Syntax error
+2023:10:16 15:31:55	:Syntax check Error
+	:Program	:TEST2.prg(Command:6)	:test2	:PC	:6 Mov sa	:Syntax error
+2023:10:16 15:32:22	:Syntax check Error
+	:Program	:TEST2.prg(Command:6)	:test2	:PC	:6 Mov sa	:Syntax error
+2023:10:16 15:32:34	:Syntax check Error
+	:Program	:TEST2.prg(Command:6)	:test2	:PC	:6 Mov sa	:Syntax error
+2023:11:27 13:23:08	:Syntax check Error
+	:Program	:HI(Command:1)	:test2	:Robot	:1 Mov left_down	:Syntax error
+	:Program	:HI(Command:2)	:test2	:Robot	:2 Mov left_up	:Syntax error
+	:Program	:HI(Command:3)	:test2	:Robot	:3 Mov left_down	:Syntax error
+	:Program	:HI(Command:4)	:test2	:Robot	:4 Mov mid_down	:Syntax error
+	:Program	:HI(Command:5)	:test2	:Robot	:5 Mov mid_up	:Syntax error
+	:Program	:HI(Command:6)	:test2	:Robot	:6 Mov mid_down	:Syntax error
+	:Program	:HI(Command:7)	:test2	:Robot	:7 Mov right_down	:Syntax error
+	:Program	:HI(Command:8)	:test2	:Robot	:8 Mov right_up	:Syntax error
+	:Program	:HI(Command:9)	:test2	:Robot	:9 Mov right_down	:Syntax error
+2023:11:27 13:23:41	:Syntax check Error
+	:Program	:HI(Command:1)	:test2	:Robot	:1 Mov left_down	:Syntax error
+	:Program	:HI(Command:2)	:test2	:Robot	:2 Mov left_up	:Syntax error
+	:Program	:HI(Command:3)	:test2	:Robot	:3 Mov left_down	:Syntax error
+	:Program	:HI(Command:4)	:test2	:Robot	:4 Mov mid_down	:Syntax error
+	:Program	:HI(Command:5)	:test2	:Robot	:5 Mov mid_up	:Syntax error
+	:Program	:HI(Command:6)	:test2	:Robot	:6 Mov mid_down	:Syntax error
+	:Program	:HI(Command:7)	:test2	:Robot	:7 Mov right_down	:Syntax error
+	:Program	:HI(Command:8)	:test2	:Robot	:8 Mov right_up	:Syntax error
+	:Program	:HI(Command:9)	:test2	:Robot	:9 Mov right_down	:Syntax error
+2023:11:27 13:24:38	:Syntax check Error
+	:Program	:HI(Command:1)	:test2	:Robot	:1 Mov left_down	:Syntax error
+	:Program	:HI(Command:2)	:test2	:Robot	:2 Mov left_up	:Syntax error
+	:Program	:HI(Command:3)	:test2	:Robot	:3 Mov left_down	:Syntax error
+	:Program	:HI(Command:4)	:test2	:Robot	:4 Mov mid_down	:Syntax error
+	:Program	:HI(Command:5)	:test2	:Robot	:5 Mov mid_up	:Syntax error
+	:Program	:HI(Command:6)	:test2	:Robot	:6 Mov mid_down	:Syntax error
+	:Program	:HI(Command:7)	:test2	:Robot	:7 Mov right_down	:Syntax error
+	:Program	:HI(Command:8)	:test2	:Robot	:8 Mov right_up	:Syntax error
+	:Program	:HI(Command:9)	:test2	:Robot	:9 Mov right_down	:Syntax error
+2024:04:05 13:40:56	:Syntax check Error
+	:Program	:SIGNALS(Command:4)	:RC3	:Robot	:4 home_pos = SetJnt(J1.J1,J1.J2,J1.J3,J1.J4,J1.J5,J1.J6,J1.J7+m0)	:Syntax error
+	:Program	:SIGNALS(Command:5)	:RC3	:Robot	:5 Mov home_pos	:Syntax error
+2024:04:05 13:41:34	:Syntax check Error
+	:Program	:SIGNALS(Command:5)	:RC3	:Robot	:5 Mov home_pos	:Syntax error
+2024:04:05 13:58:27	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In!=1)	:Variable type combination error
+2024:04:05 14:01:50	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In(6000)!=1)	:Syntax error
+2024:04:05 14:02:03	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In(6000)!=1)	:Syntax error
+2024:04:05 14:02:40	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(1)	:WHILE WEND statements unmatch
+2024:04:05 14:05:10	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In(6000) != 1)	:Syntax error
+2024:04:05 14:05:21	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In != 1)	:Syntax error
+2024:04:05 14:05:38	:Syntax check Error
+	:Program	:SIGNALS(Command:2)	:RC3	:Robot	:2 While(M_In(6000) != 1)	:Syntax error
+2024:04:05 14:23:19	:Syntax check Error
+	:Program	:SIGNALS(Command:3)	:RC3	:Robot	:3     J1 = SetJnt(...,J1.J7+10)	:Syntax error
+2024:04:08 10:14:20	:Syntax check Error
+	:Program	:SIGNALS(Command:10)	:RC3	:Robot	:10 J1= (60.850, -22.940, 63.900, -7.860, -46.520, 1.820, J_Curr.J7	:Syntax error
+2024:04:08 10:14:30	:Syntax check Error
+	:Program	:SIGNALS(Command:10)	:RC3	:Robot	:10 J1= (60.850, -22.940, 63.900, -7.860, -46.520, 1.820, J_Curr.J7)	:Syntax error
+2024:04:10 16:14:32	:Syntax check Error
+	:Program	:WRITELETTER(Command:3)	:RC3	:Robot	:3 U1 = SetJnt(J1.J1,J1.J2,J1.J3-10,J1.J4,J1.J5,J1.J6,J1.J7)	:Syntax error
+	:Program	:WRITELETTER(Command:4)	:RC3	:Robot	:4 Mov U1	:Syntax error
+	:Program	:WRITELETTER(Command:5)	:RC3	:Robot	:5 U2 = SetJnt(U1.J1+10,U1.J2,U1.J3,U1.J4,U1.J5,U1.J6,U1.J7)	:Syntax error
+	:Program	:WRITELETTER(Command:6)	:RC3	:Robot	:6 Mov U2	:Syntax error
+	:Program	:WRITELETTER(Command:7)	:RC3	:Robot	:7 U3 = SetJnt(U2.J1,U2.J2,U2.J3+10,U2.J4,U2.J5,U2.J6,U2.J7)	:Syntax error
+	:Program	:WRITELETTER(Command:8)	:RC3	:Robot	:8 Mov U3	:Syntax error
+2024:04:10 16:36:00	:Syntax check Error
+	:Program	:WRITELETTER(Command:5)	:RC3	:Robot	:5 P2 = SetPos(P1.x , P1.y+P1.1, P1.z)	:Syntax error

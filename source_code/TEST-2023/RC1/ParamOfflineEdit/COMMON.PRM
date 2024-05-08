@@ -1,0 +1,4 @@
+COMMON.PRMNARC parameter system V1.0;
+MECHA1=Ms,"RV-7FR-D";
+LNG=Us,"ENG";
+RCTYPE=Md,2,0;
