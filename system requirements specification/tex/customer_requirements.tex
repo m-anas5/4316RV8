@@ -1,20 +1,19 @@
-This project will palletize and depalletize the boxes according to the requirement of the customer defined purpose. The boxes which are less than 7kg in weight will arrange and rearrange the boxes with defined steps as per the operational capacity. This will also implement an extra part to operate functionally for the boxes to keep in required position, QR reader will be implemented. For the safety, the light tower will be implemented to show the operation using different colors.  
-\subsection{Barcode reader}
+This robot is a device that allows users to program what they want to draw using an airbrush. The airbrush is connected to an air compressor and operates by receiving signals from a computer. Additionally, there are emergency stop buttons placed in several locations so that users can terminate the program at any time. At the end of the rail that moves the robot along the Y-axis, there are inductive sensors that will display a warning orange light if the allowed range is exceeded. The light tower indicates the current program status with green, orange, and red lights.
+\subsection{Airbrush}
 \subsubsection{Description}
-By incorporating a QR code or barcode scanner into the RV 8 robot arm, it can be programmed to move to various positions based on the barcode it reads. It can figure out what it is looking at and move accordingly. This means it can neatly stack packages from the ground onto specific rails or take packages off the rail carefully. This scanner helps the robot work better, making it quicker and less likely to make mistakes. It is perfect for jobs where things need to be sorted or moved just right. The RV 8 robot arm can recognize different barcodes, making it really useful for businesses that handle all kinds of stuff.
+The airbrush is connected to an air compressor, which in turn is connected to a PLC (Programmable Logic Controller) to receive signals for operation. The air compressor is designed to automatically adjust the pressure. Users can command the robot to spray ink when it reaches the desired position and to stop. Additionally, the robot is programmed to work when the light tower is green.
 \subsubsection{Source}
 CSE Senior Design project specifications.
 \subsubsection{Constraints}
-Exceeding weight limitations can lead to performance issues and safety concerns. The budget of the business may limit what can be implemented. The working environment can affect the scanner's performance. Factors like dust, temperature, and humidity might limit its effectiveness and require additional protective measures.
+If the drawings or prints are large, the ink storage capacity could be an issue. A large ink storage space would be needed based on usage. Additionally, it is important to continuously maintain the cleanliness of the airbrush to ensure it does not clog and can spray a consistent amount.
 \subsubsection{Standards}
 \begin{itemize}
-\item ISO/IEC 18004:20xx Information technology - Automatic identification and data capture techniques: The QR code scanner should follow ISO/IEC 18004 for QR code data encoding and data matrix symbols for compatibility and readability.
-\item ISO 10218 Robots and robotic devices - Safety requirements for industrial robots: In order to ensure the safe interaction of the robot arm with the QR scanner and other equipment.
+\item ISO 10218 Robots and robotic devices - Safety requirements for industrial robots: In order to ensure the safe interaction of the robot arm with the airbrush and other equipment.
 \end{itemize}
 \subsubsection{Priority}
 \begin{itemize}
 \item Critical:
-The robot's ability to determine its actions and destinations based on QR codes is important. Without this feature, the product would be rendered ineffective.
+This is the main purpose of the project. Without the airbrush, it cannot function.
 \end{itemize}
 \subsection{Runtime setup}
 \subsubsection{Description}
@@ -48,7 +47,7 @@ This feature is very important for the product as it directly impacts the safety
 \end{itemize}
 \subsection{Orange Light Signal}
 \subsubsection{Description}
-The orange light is a distinctive visual indicator designed to signal specific conditions or events within the system. This light module emits a bright orange light when a predefined condition is met or when a warning or alert status is triggered. It serves as a clear and easily recognizable means of providing immediate visual cues to operators or users, enhancing safety and ensuring efficient response to critical events.
+The orange light is a distinctive visual indicator designed to signal specific conditions or events within the system. This light module emits a bright orange light when the inductive sensors detect metals or when a warning or alert status is triggered. It serves as a clear and easily recognizable means of providing immediate visual cues to operators or users, enhancing safety and ensuring efficient response to critical events.
 \subsubsection{Source}
 CSE Senior Design project specifications.
 \subsubsection{Constraints}
@@ -82,18 +81,6 @@ Environmental: The components of the red light tower should be environmentally f
 \item High:
 This feature is very important for the product as it directly impacts the safety and efficiency of industrial operations. The red light tower is essential for providing real-time status information, enhancing worker safety, and ensuring smooth and error-free processes. Its absence would compromise both operational safety and productivity, making it a fundamental requirement.
 \end{itemize}
-
-\subsection{Palletizing and depalletizing}
-\subsubsection{Description}
-The main objective of this system is to efficiently arrange and rearrange boxes in a structured manner, sticking to a method specified by the customer. This will be based on the customer's specified method. 
-\subsubsection{Source}
-Team ROBO CREW 
-\subsubsection{Constraints}
-In the system design, certain constraints must be considered for functionality. These constraints primarily involve establishing specific offset values that must be configured to align with the desired operational parameters. Before achieving full operational capacity, testing procedures will be necessary to verify and fine-tune these set offset values. These tests will ensure that the system operates within the defined constraints, maintaining accuracy and efficiency in the palletizing and depalletizing processes. 
-\subsubsection{Standards}
-Not applicable. 
-\subsubsection{Priority}
-High
 
 \subsection{Installation of Linear Rail}
 \subsubsection{Description}

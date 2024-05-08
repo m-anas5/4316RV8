@@ -1,7 +1,7 @@
 This section provides the reader with an overview of the RV8 robot work cell. The primary operational aspects of the product, from the perspective of end users, maintainers and administrators, are defined here. The key features and functions found in the work cell, as well as critical user interactions are described in detail below.
 
 \subsection{Features \& Functions}
-The RV8 work cell will specialize in palletizing and depalletizing boxes. It will perform these operations through the use of a hydraulic gripper, vision sensors, and QR code scanners. The vertical robot initially has 6 axis, with a linear rail acting as the 7th axis. The robot will stack boxes on pallets, sorting the boxes through the use of scanner data. While performing the operation, several safety features will be implemented, such as emergency stops, industrial light towers, and presence detection within the work cell. The integrated components of the work cell are the programmable logic controller (PLC), host PC, and a CR800 handheld controller.
+The RV8 work cell will specialize in precisely marking on an object incorporating all aspects of the robot arm and linear rail. It will perform these operations through the use of a compressor which will be connected to the PLC. The vertical robot initially has 6 axis, with a linear rail acting as the 7th axis. The robot will precisely paint, where the system will send signal to the compressor which will output the paint on a plastic sheet. While performing the operation, several safety features will be implemented, such as emergency stops, and industrial light towers. The integrated components of the work cell are the Programmable Logic Controller (PLC), host PC, and a CR800 handheld controller.
 
 \subsection{External Inputs \& Outputs}
 \begin{table}[H]
@@ -9,11 +9,11 @@ The RV8 work cell will specialize in palletizing and depalletizing boxes. It wil
 \begin{tabular}{|l|l|l|l|}
 \hline
  \textbf{Name} & \textbf{Description} & \textbf{Use}\\ \hline
- QR Code Scanner  & Application input & Scans the presence of boxes \\ \hline
+ Air brush \& compressor & System output & Sprays the paint from the air brush \\ \hline
  Presence Detection & System input & Detects motion within the work cell  \\ \hline
  Emergency Stops & User input & Stops the operation of the robot arm \\ \hline
- Industrial Light Tower  & System output & Indicates the state of the work cell  \\ \hline
- Raspberry Pi & I/O Logic & Handles the data from the QR code reader\\ \hline
+ Industrial Light Tower & System output & Indicates the state of the work cell  \\ \hline
+Inductive Switches & System input & Indicates the end limits of linear rail \\ \hline
 \end{tabular}}
 \caption{Overview of external inputs and outputs}
 \end{table}
