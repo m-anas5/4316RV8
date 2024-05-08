@@ -1,89 +1,75 @@
-In this section, the processing layer's hardware and software design are delineated. The layer comprises a PLC, Raspberry Pi, and a PC interconnected to facilitate communication and decision-making processes. The PLC primarily governs the robotic arm's movements, including all joints and an additional axis, typically a linear rail. Conversely, the Raspberry Pi is tasked with data collection and transmission to the PC for decision-making regarding task execution on incoming objects, typically boxes. Communication between the PC and PLC ensures alignment of all arm joints for task performance. This section delves into implementation details, covering hardware components, programming languages, software dependencies, and operating systems relevant to the processing layer. Unnecessary details, such as purely software modules without specific hardware components, are omitted for conciseness. Adjustments to the organization, titles, and content are permissible to suit the project's requirements.
+In this section, the processing layer's hardware and software design are delineated. The layer comprises a PLC, Ethernet switch, and a Robot Controller interconnected to facilitate communication and decision-making processes. The processing layer comprises of connection and communication between the PLC and the robot controller primarily. In order to program the PLC to do the required tasks, GX Works3 (software) and RTToolbox (software) are jointly used. A program written in ladder logic controls the logic for the air compressor and light tower. The program inside the PLC is written from the PC and executed. The instructions are passed onto the controller and directs the robot to move its joints according to the program. 
 
 
 \subsection{Layer Hardware}
-The hardware involved with the processing layer include a MELSEC Programmable Logic Controller, issued by Mitsubishi. The PLC is a specialized computer used in industrial automation and is paired with software to make decisions based on sensor data like temperature, pressure, or motor position. Finally, the PLC is equipped with an ethernet switch that enables communication between the Host PC and PLC.
-\subsection{Layer Operating System}
-The operating systems required by the layer are dependent on the specific components. The PLC runs a real-time operating system (RTOS), while the Raspberry Pi utilizes a Linux-based operating system Raspbian, and the host PC runs Windows 10.
+The hardware involved with the processing layer include a MELSEC Programmable Logic Controller, issued by Mitsubishi. The PLC is a specialized computer used in industrial automation and is paired with software to make decisions based on the instruction from the Host PC, signals from the switches. Finally, the PLC is equipped with an ethernet socket that enables communication between the Host PC and PLC through an Ethernet switch. The robot controller controls the actions and behaviors of robotic systems through joints movement, transforming programmed instructions into precise and efficient movements to fulfill a wide range of industrial tasks and applications. 
 
+\subsection{Layer Operating System}
+The operating systems required by the layer are dependent on the specific components. The host PC runs on Windows 10 and PLC is on Real Time Operating System (RTOS).
 
 \subsection{Layer Software Dependencies}
-There are currently no software dependencies.
-\subsection{Host PC}
-The host PC acts as a powerful processing unit for in-depth analysis, decision making, and control. It receives pre-processed data from the Raspberry Pi, including data from the QR code, and it performs trajectory planning and higher level decision making.
+The Host PC uses RT ToolBox for ladder logic, GX Works3 to controlled movement of joints, and it uses Windows 10 as operating system. 
+
+\subsection{PLC}
+PLCs provide a centralized platform for controlling and programming the movements of the RV-8 robot. They execute logic sequences that regulate the robot's motions, trajectories, and speeds, ensuring precise and coordinated operation in the manufacturing environment. PLCs interface with sensor systems to enable adaptive control schemes and provide input to RV-8 robots. They have safety features such emergency stop connections to validate the work cell's safety state and light towers to show the operating condition. 
 
 \begin{figure}[h!]
 	\centering
- 	\includegraphics[width=0.6\textwidth]{images/HostPC.jpg}
- \caption{Host PC Subsystem}
+ 	\includegraphics[width=0.6\textwidth]{images/PLC_Processing.png}
+ \caption{ PLC Subsystem}
 \end{figure}
 
 \subsubsection{Subsystem Hardware}
-This subsystem consists of a Dell desktop computer with USB connections to the RV-8CRL controller. 
-\subsubsection{Subsystem Operating System}
-The PC runs Windows 10.
-\subsubsection{Subsystem Software Dependencies}
-The PC runs several software for the system including RT ToolBox3, GXWorks, MRConfigurator2, and Creality.
-\begin{itemize}
-    \item RT ToolBox is a software developed by Mitsubishi used for visual programming of the robotic arm, acting as a 3D simulator.
-    \item GXWorks is a software suite provided by Mitsubishi Electric for programming and configuring PLCs. It is a comprehensive development environment that supports various programming languages such as ladder logic, function block diagrams (FBD), and structured text (ST).
-    \item MRConfigurator2 is a software tool used for programmign Mitsubishi's servo drives and motion controllers.
-    \item Creality is used for 3D modeling and design. Primarily, this software is used for designing mechanical components.
-\end{itemize}
+The Mitsubishi Electric MELSEC iQ-F FX5UC-32MT/DSS-TS PLC is a compact unit featuring 32 I/O points, 16 digital inputs, and 16 digital outputs, all operating at 24Vdc and Ethernet communication capabilities. The PLC also has an external relay switch FX5-8EYR/ES with 8 digital outputs.
 
-\subsubsection{Subsystem Programming Languages}
-The Host PC uses Python scripts for network communication. The RT ToolBox software supports MELFA-BASIC-VI programming language.
-
-\subsubsection{Subsystem Data Processing}
-Upon receiving preprocessed data from the Raspberry Pi, the Host PC engages in thorough data analysis. This includes examining sensor data performing image processing if necessary. Algorithms for noise reduction, edge detection, and image segmentation may be employed to extract relevant information from sensor readings or images. The Host PC manages communication with the PLC using Ethernet/IP. Data packets are assembled and parsed according to the protocol specifications, ensuring reliable and efficient data exchange between the PC and the PLC.
-
-\subsection{Additional Axis Servo}
-This subsystem focuses on controlling the additional axis, such as a linear rail, to facilitate precise movements of the robotic arm.
-\begin{figure}[h!]
-	\centering
- 	\includegraphics[width=0.65\textwidth]{images/ServoAmp.jpg}
- \caption{Servo Subsystem}
-\end{figure}
-
-\subsubsection{Subsystem Hardware}
-The subsystem consists of a RollOn linear axis on a Megadyne belt. The servo amplifier is a MELSERVO MR-J4 series. Connections between the servo amplifier and PLC occur through a USB-A.
-\subsubsection{Subsystem Software Dependencies}
-Servo amplifier parameters are dependent on MRConfigurator2, where they can be specified through read/write operations.
-
-\subsubsection{Subsystem Data Processing}
-The servo amplifier receives control signals from the controller and translates them into precise voltage and current outputs to drive a servo motor. It continuously monitors feedback from sensors to maintain accurate motor position and velocity, adjusting operation as needed to minimize discrepancies. Additionally, servo amplifiers incorporate safety features to prevent damage and ensure safe operation of the motor system.
-
-
-\subsection{Programmable Logic Controller}
-The PLC acts as the central component of the processing layer, responsible for coordinating and executing control tasks for the robotic arm and additional axis. This subsection outlines the hardware, software, and data processing aspects specific to the PLC.
-\begin{figure}[h!]
-	\centering
- 	\includegraphics[width=0.65\textwidth]{images/PLC.jpg}
- \caption{PLC Subsystem}
-\end{figure}
-
-\subsubsection{Subsystem Hardware}
-The PLC consists of a MELSEC Programmable Logic Controller manufactured by Mitsubishi, equipped with an integrated ethernet switch for communication with the host PC.
 
 \subsubsection{Subsystem Operating System}
 Operating on a real-time operating system (RTOS), the PLC ensures precise timing and reliable execution of control logic.
 
 \subsubsection{Subsystem Software Dependencies}
-Software tools such as GXWorks and MRConfigurator2, provided by Mitsubishi Electric, enable the programming and configuration of the PLC for control tasks.
+Software tools such as GX Works and MRConfigurator2, provided by Mitsubishi Electric, enable the programming and configuration of the PLC for control tasks.
 
+\subsubsection{Subsystem Data Processing}
+The PLC processes sensor feedback and command signals in real-time, executing control logic to coordinate the movements of the robotic arm and additional axis. Communication with the host PC via TCP/IP facilitates efficient data exchange for seamless system operation.
+
+
+\subsection{Ethernet Switch}
+Ethernet Switch plays an important role in facilitating communication and data exchange within the control system. In order to provide compatibility with a variety of devices and controllers and to enable smooth integration with current automation systems, the switch supports a wide range of communication protocols, including TCP/IP. 
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.65\textwidth]{images/Ethernet_Processing.png}
+ \caption{Ethernet Switch Subsystem}
+\end{figure}
+
+\subsubsection{Subsystem Hardware}
+The subsystem uses Ethernet switch board with 8 sockets.
+
+\subsubsection{Subsystem Software Dependencies}
+Uses Windows for it's user-interface.
+
+
+\subsection{Robot Controller}
+The movements, actions, and functions of one or more robotic arms or manipulators are coordinated and controlled by a robot controller, which acts as the control system of a robotic system. Controlling the robotic arm's motion is the main responsibility of the robot controller. The robot's joints are controlled by motors and actuators that it creates commands to drive, allowing for precise and coordinated movement in three dimensions. It support TCP/IP communication protocol for interfacing with other devices and robot arm to communicate. It is connect with PLC via Ethernet switch, which acts as slave device and PLC as master device, as PLC processes the data from the slave device to performs control actions using robot controller.  
+The back panel of the robot controller has 2 connectors (CNUSR11 and CNUSR12) pins that allow for other connections, such as emergency stop (e-stop) capabilities, which guarantees rapid stops to the robot arm's movements in an emergency. It also makes it easier to attach a light tower, which provides a visible signal of the operational state of the working cell. The robotic system's overall safety and efficiency are improved by this combination of safety features, which offer real-time monitoring and quick response times to guarantee a safe working environment.
+
+\begin{figure}[h!]
+	\centering
+ 	\includegraphics[width=0.65\textwidth]{images/Controller_Processing.png}
+ \caption{Robot Controller Subsystem}
+\end{figure}
+
+\subsubsection{Subsystem Hardware}
+It contains network card for CC-Link.
+
+\subsubsection{Subsystem Operating System}
+Operates on Host PC, which uses Windows as it's operating system. 
+
+\subsubsection{Subsystem Software Dependencies}
+It uses RT-ToolBox for it's programming, also called Ladder logic programming. 
 
 \subsubsection{Subsystem Programming Languages}
-Programming languages supported by GXWorks, including ladder logic, function block diagrams, and structured text, are utilized for developing control algorithms tailored to the application. RT ToolBox is written in MELFA BASIC VI
+Programming languages supported by GXWorks, including ladder logic, function block diagrams, and structured text, are utilized for developing control algorithms tailored to the application. RT ToolBox is written in MELFA BASIC VI.
 
 
 \subsubsection{Subsystem Data Processing}
-The PLC processes sensor feedback and command signals in real-time, executing control logic to coordinate the movements of the robotic arm and additional axis. Communication with the host PC via Ethernet/IP facilitates efficient data exchange for seamless system operation.
-
-
-
-
-
-
-
-
-
+No data processing is done by Robot controller, it uses operates on PLC logical output. 
