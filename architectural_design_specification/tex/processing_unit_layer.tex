@@ -1,73 +1,58 @@
-In this section, the processing unit layer is described in some detail in terms of its specific subsystems. The processing unit comprises two primary components: the host PC and the Raspberry Pi. This layer plays a crucial role in the robotic system by acquiring input data from sensors and processing it before transmitting the processed data to the robot controllers.
-
-\subsection{Host PC}
-The host PC acts as a powerful processing unit for in-depth analysis, decision making, and control. It receives pre-processed data from the Raspberry Pi, including data from the QR code, and it performs trajectory planning and higher level decision making.
-
+\subsection{Ethernet Switch}
+The Ethernet switch bridges communication between 3 crucial components: the host PC, the robot controller, and the PLC. The Ethernet switch is located within the control cabinet and insures consistent and instantaneous communication over the network.
 \begin{figure}[h!]
 	\centering
- 	\includegraphics[width=0.60\textwidth]{images/host_pc.png}
- \caption{Host PC subsystem}
+ 	\includegraphics[width=0.60\textwidth]{images/Processing_Ethernet.png}
+ \caption{Ethernet subsystem}
 \end{figure}
 
 \subsubsection{Assumptions}
-\begin{itemize}
-    \item The host PC assumes a stable connection to the Raspberry Pi for data transfer.
-    \item The host PC assumes that data received from Raspberry Pi is processed correctly.
-\end{itemize}
+A stable Ethernet connection is assumed for consistent data transfer. The components are configured to be on the same sub-network to communicate. Additionally, the robot controller and PLC must be configured with Mitsubishi's CC-Link IE Field Network to ensure signal transfer.
 \subsubsection{Responsibilities}
-\begin{itemize}
-    \item Data Analysis: The host PC is responsible for analyzing the data received from the Raspberry Pi, which includes processing sensor data, decoding QR codes, and running various algorithms for object recognition.
-    \item Decision-Making: Based on the data analysis, the host PC is responsible for making high-level decisions, such as robot control commands, path planning, and task scheduling.
-    \item Communication with PLC: The host PC is responsible for communicating with the Programmable Logic Controller (PLC) to issue control commands and receive status updates.
-    \item Output to Indicators: The host PC is responsible for sending instructions to indicators to provide visual feedback to operators.
-\end{itemize}
+The Ethernet switch is responsible for routing and forwarding data packets between the robot controller, PLC, and other networked devices. The switch must be consistent to ensure precision and fast transmission. Without the Ethernet switch, the robotic work cell cannot function properly and errors will arise from a lack of communication.
 
 \subsubsection{Subsystem Interfaces}
 
 \begin {table}[H]
 \caption {Subsystem interfaces} 
 \begin{center}
-    \begin{tabular}{ | p{1cm} | p{6cm} | p{4cm} | p{4cm} |}
+    \begin{tabular}{ | p{1cm} | p{6cm} | p{4cm} | p{5cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#01 & Data input from Raspberry Pi & \pbox{4cm}{Preprocessed sensor data \\ QR code results } & \pbox{4cm}{Control instructions}  \\ \hline
-    \#02 & Communication with PLC & \pbox{3cm}{N/A} & \pbox{4cm}{Control commands}  \\ \hline
+    \#04 & Data input from PC & \pbox{4cm}{CAT6 Ethernet Cable} & \pbox{5cm}{CC-Link processed packets}  \\ \hline
+    \#05 & Data input from PLC & \pbox{4cm}{CAT6 Ethernet Cable} & \pbox{5cm}{CC-Link processed packets}  \\ \hline
+    \#06 & Data input from CR-800 Controller & \pbox{4cm}{CAT6 Ethernet Cable} & \pbox{5cm}{CC-Link processed packets}  \\ \hline
+
     \end{tabular}
 \end{center}
 \end{table}
 
-\subsection{Raspberry Pi}
-The Raspberry Pi serves as an integral component of the processing unit within the robot system. It fulfills the role of an edge computing device, responsible for initial data processing and interfacing between the sensors and the host PC. Specifically, the Raspberry Pi is responsible for collecting data from a variety of sensors, including those for QR code scanning and other environmental monitoring.
+\subsection{Controller}
+Controllers are designed to seamlessly integrate with robots. These sophisticated devices serve as the brain of robots, governing their actions and enabling precise control.
+%The Raspberry Pi serves as an integral component of the processing unit within the robot system. It fulfills the role of an edge computing device, responsible for initial data processing and interfacing between the sensors and the host PC. Specifically, the Raspberry Pi is responsible for collecting data from a variety of sensors, including those for QR code scanning and other environmental monitoring.
 \begin{figure}[h!]
 	\centering
- 	\includegraphics[width=0.60\textwidth]{images/rpi.png}
- \caption{Raspberry Pi subsystem}
+ 	\includegraphics[width=0.60\textwidth]{images/Processsing_controller.png}
+ \caption{Controller subsytem}
 \end{figure}
 
 \subsubsection{Assumptions}
-\begin{itemize}
-    \item The Raspberry Pi is properly installed on the robot arm and receives sensor input data correctly.
-    \item The Raspberry Pi receives data in the expected format.
-    \item The Raspberry Pi has the necessary software and libraries installed for data preprocessing.
-    \item The Raspberry Pi has an established connection with the Raspberry Pi.
-\end{itemize}
+The primary role of a robot controller is to receive instructions from a PLC and external sensors.
+
+    
 \subsubsection{Responsibilities}
-\begin{itemize}
-    \item Sensor Data Collection: The Raspberry Pi is responsible for collecting data from various sensors, such as cameras and QR code scanners.
-    \item Data Preprocessing: The Raspberry Pi preprocesses the collected data, which may include image processing, decoding QR codes, and initial data filtering.
-    \item Data Transfer: It is responsible for transferring the preprocessed data to the host PC for further analysis and decision-making.
-\end{itemize}
+Responsibilities of controller is to precisely manipulate the robot's joints according to a specific sequence or pattern. In addition, it also receives signals from E-stops which halts the robot functionality.
 
 \subsubsection{Subsystem Interfaces}
 
 \begin {table}[H]
 \caption {Subsystem interfaces} 
 \begin{center}
-    \begin{tabular}{ | p{1cm} | p{6cm} | p{4cm} | p{4cm} |}
+    \begin{tabular}{ | p{1cm} | p{6cm} | p{4cm} | p{5cm} |}
     \hline
     ID & Description & Inputs & Outputs \\ \hline
-    \#01 & Sensor data & \pbox{4cm}{Sensor data streams} & \pbox{4cm}{Preprocessed data}  \\ \hline
-    \#02 & Communication with host PC & \pbox{4cm}{N/A} & \pbox{4cm}{Data to be analyzed}  \\ \hline
+    \#07 & Controller & \pbox{4cm}{signals} & \pbox{5cm}{movement of joints}  \\ \hline
+    \#08 & Controller & \pbox{4cm}{Emergency stops} & \pbox{5cm}{Halting the robot movement}  \\ \hline
     \end{tabular}
 \end{center}
 \end{table}
